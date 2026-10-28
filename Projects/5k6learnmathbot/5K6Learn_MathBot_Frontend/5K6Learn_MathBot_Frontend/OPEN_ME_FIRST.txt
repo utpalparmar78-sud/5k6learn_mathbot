@@ -1,0 +1,9 @@
+5K6LEARN MATHBOT — FRONTEND ONLY
+
+1. Extract this ZIP.
+2. Make sure the backend ZIP is extracted and running first.
+3. Double-click `index.html` to open 5K6Learn MathBot in Chrome. `app.js` is configured to send requests to `http://127.0.0.1:8000`.
+4. Keep the backend terminal window open while using MathBot.
+
+Check that http://127.0.0.1:8000/api/health returns `"status":"ok"` before using the frontend.
+If you host the backend online later, edit the API_BASE line near the top of app.js.
