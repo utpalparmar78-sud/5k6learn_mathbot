@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5K6Learn MathBot</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="orb orb-one"></div><div class="orb orb-two"></div>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-mark">∑</span><span>5K6Learn <b>MathBot</b></span></a>
+  <div class="status"><span class="pulse"></span><span id="apiStatus">Checking maths engine…</span></div>
+</header>
+<main class="shell">
+  <section class="hero">
+    <div class="eyebrow">YOUR FRIENDLY MATHS COMPANION</div>
+    <h1>Maths made <span>understandable.</span></h1>
+    <p>Solve expressions, learn each step, and explore functions — all in one place.</p>
+  </section>
+  <section class="workspace">
+    <aside class="sidebar">
+      <div class="side-label">CHOOSE A TOOL</div>
+      <button class="mode active" data-mode="simplify"><span>✳</span> Simplify</button>
+      <button class="mode" data-mode="solve"><span>＝</span> Solve equation</button>
+      <button class="mode" data-mode="factor"><span>▦</span> Factor</button>
+      <button class="mode" data-mode="expand"><span>⤢</span> Expand</button>
+      <button class="mode" data-mode="differentiate"><span>∂</span> Derivative</button>
+      <button class="mode" data-mode="integrate"><span>∫</span> Integral</button>
+      <button class="mode" data-mode="limit"><span>↗</span> Limit</button>
+      <button class="mode" data-mode="evaluate"><span>⌗</span> Calculate</button>
+      <button class="mode" data-mode="graph"><span>⌁</span> Graph</button>
+      <button class="mode" data-mode="matrix"><span>▤</span> Matrix tools</button>
+      <button class="mode" data-mode="word"><span>✎</span> Word problem <small>AI</small></button>
+      <div class="sidebar-note"><span>💡</span><p>Tip: type <code>2*x + 5 = 15</code> to solve an equation.</p></div>
+    </aside>
+    <section class="panel">
+      <div class="panel-head"><div><div class="eyebrow" id="modeEyebrow">SYMBOLIC MATHS</div><h2 id="panelTitle">Simplify an expression</h2></div><button id="clearBtn" class="quiet">Clear</button></div>
+      <label for="expression" id="inputLabel">Your expression</label>
+      <textarea id="expression" rows="2" placeholder="e.g. (x + 2)^2 - x^2"></textarea>
+      <div id="extraFields"></div>
+      <div class="examples"><span>Try:</span><button class="example" data-value="(x + 2)^2 - x^2">Expand & simplify</button><button class="example" data-value="sin(pi/2)">Trigonometry</button><button class="example" data-value="x^2 - 5*x + 6">Quadratic</button></div>
+      <div class="controls">
+        <div class="variable-control"><label for="variable">Variable</label><select id="variable"><option>x</option><option>y</option><option>z</option><option>t</option></select></div>
+        <button id="solveBtn" class="primary"><span>✦</span> Solve it <span class="arrow">→</span></button>
+      </div>
+      <div id="errorBox" class="error hidden" role="alert"></div>
+      <section id="resultBox" class="result hidden" aria-live="polite">
+        <div class="result-top"><div><div class="eyebrow">YOUR RESULT</div><h3 id="resultTitle">Solution</h3></div><button id="copyBtn" class="quiet">Copy answer</button></div>
+        <pre id="resultText"></pre>
+        <div id="graphWrap" class="graph-wrap hidden"><canvas id="graphCanvas" width="760" height="300" aria-label="Function graph"></canvas></div>
+        <div id="aiBox" class="ai-box hidden"><div class="ai-heading">✦ AI tutor explanation</div><p id="aiText"></p></div>
+        <div class="steps-head">Step-by-step guide</div><ol id="stepsList"></ol>
+      </section>
+      <div class="disclaimer">MathBot can make mistakes on unusual or advanced inputs. Check important results independently.</div>
+    </section>
+  </section>
+  <footer>Made for curious minds <span>✦</span> 5K6Learn MathBot</footer>
+</main>
+<script src="app.js"></script>
+</body></html>
