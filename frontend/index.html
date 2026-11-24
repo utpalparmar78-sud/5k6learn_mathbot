@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en" data-palette="graphite">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="5K6Learn MathBot — a precise mathematics workbench that runs entirely in your browser.">
+<title>5K6Learn MathBot — Mathematics, without the noise</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230e1013'/%3E%3Cpath d='M14 46 32 14l18 32M21 36h22' stroke='%235b8cff' stroke-width='5' fill='none'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/palettes.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+<!-- Icon library: stroke-based, no emoji or glyph characters -->
+<svg class="icon-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-logo" viewBox="0 0 32 32"><path d="M4 26 16 6l12 20M9 19h14"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-arrow-diag" viewBox="0 0 24 24"><path d="M6 18 18 6M9 6h9v9"/></symbol>
+  <symbol id="i-swatches" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><circle cx="17" cy="17" r="4"/></symbol>
+  <symbol id="i-history" viewBox="0 0 24 24"><path d="M3.5 12a8.5 8.5 0 1 0 2.6-6.1M3.5 4v4.5H8M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="1.5"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+  <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4-6 4z"/></symbol>
+  <symbol id="i-reset" viewBox="0 0 24 24"><path d="M20 6v5h-5M4 18v-5h5"/><path d="M19 11a7 7 0 0 0-12-3L4 11M5 13a7 7 0 0 0 12 3l3-3"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V5h6v2M6 7l1 13h10l1-13M10 11v5M14 11v5"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></symbol>
+  <symbol id="i-simplify" viewBox="0 0 24 24"><path d="M4 8h9M4 12h9M4 16h6M16 6l5 12M21 6 16 18"/></symbol>
+  <symbol id="i-solve" viewBox="0 0 24 24"><path d="M5 9h14M5 15h14"/></symbol>
+  <symbol id="i-factor" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></symbol>
+  <symbol id="i-expand" viewBox="0 0 24 24"><path d="M9 4H4v5M15 4h5v5M9 20H4v-5M15 20h5v-5M4 4l6 6M20 4l-6 6M4 20l6-6M20 20l-6-6"/></symbol>
+  <symbol id="i-derivative" viewBox="0 0 24 24"><path d="M3 18c5 0 5-12 10-12 3 0 4 3 8 3"/><path d="m16 6 5 3-3 5"/></symbol>
+  <symbol id="i-integral" viewBox="0 0 24 24"><path d="M9 4c-2 0-3 2-3 4 0 5 2 5 4 5 2 0 3 1 3 3 0 2-1 4-3 4"/><path d="M14 5h7M17.5 5v14"/></symbol>
+  <symbol id="i-limit" viewBox="0 0 24 24"><path d="M3 19h18M6 16c3-1 4-8 8-8 2 0 3 1 4 3"/><circle cx="6" cy="19" r="1.5"/></symbol>
+  <symbol id="i-calculate" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 7h8M8 12h2M14 12h2M8 16h2M14 16h2"/></symbol>
+  <symbol id="i-keypad" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1.5"/><path d="M7 7h2M11 7h2M15 7h2M7 11h2M11 11h2M15 11h2M7 15h2M11 15h2M15 15v4M7 19h2M11 19h2"/></symbol>
+  <symbol id="i-backspace" viewBox="0 0 24 24"><path d="M9 5h11a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9L2 12z"/><path d="m12 9 6 6M18 9l-6 6"/></symbol>
+  <symbol id="i-graph" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M6 16c3-9 6-9 9-4s4 3 6-3"/></symbol>
+  <symbol id="i-matrix" viewBox="0 0 24 24"><path d="M5 3v18M19 3v18M3 5h18M3 19h18"/><circle cx="9" cy="9" r="1"/><circle cx="15" cy="9" r="1"/><circle cx="9" cy="15" r="1"/><circle cx="15" cy="15" r="1"/></symbol>
+  <symbol id="i-stats" viewBox="0 0 24 24"><path d="M3 21h18M6 21V11M11 21V5M16 21v-7M21 21v-11"/></symbol>
+  <symbol id="i-number" viewBox="0 0 24 24"><path d="M6 4v16M18 4v16M4 9h16M4 15h16"/></symbol>
+  <symbol id="i-word" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+</svg>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top" aria-label="5K6Learn MathBot">
+      <span class="brand-mark"><svg class="icon"><use href="#i-logo"/></svg></span>
+      <span class="brand-text"><b>5K6</b><span>MATHBOT</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#workbench">Workbench</a>
+      <a href="#tools">Tools</a>
+      <a href="#method">Method</a>
+    </nav>
+    <div class="header-actions">
+      <div class="palette-wrap">
+        <button class="header-btn" id="paletteToggle" aria-label="Colour palette" aria-expanded="false">
+          <svg class="icon"><use href="#i-swatches"/></svg><span id="paletteName">Graphite</span>
+        </button>
+        <div class="palette-menu" id="paletteMenu" hidden></div>
+      </div>
+      <button class="header-btn icon-only" id="historyToggle" aria-label="History" title="History">
+        <svg class="icon"><use href="#i-history"/></svg>
+      </button>
+      <button class="header-btn icon-only mobile-menu" id="mobileMenu" aria-label="Menu">
+        <svg class="icon"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="kicker"><span class="kicker-rule"></span> A WORKSPACE FOR EXACT THINKING</p>
+        <h1>Mathematics,<br><span class="accent-word">without</span><br>the noise.</h1>
+        <p class="hero-lede"><span id="heroToolCount">Fourteen</span> tools. One clean surface. No setup, no sign-up, no server — just precise answers and the steps that get you there.</p>
+        <div class="hero-actions">
+          <a class="btn-solid" href="#workbench">Open the workbench <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+          <a class="btn-line" href="#tools">See every tool <svg class="icon"><use href="#i-arrow-diag"/></svg></a>
+        </div>
+        <dl class="hero-facts">
+          <div><dt>13</dt><dd>mathematical tools</dd></div>
+          <div><dt>0</dt><dd>installation steps</dd></div>
+          <div><dt>∞</dt><dd>ways to explore</dd></div>
+        </dl>
+      </div>
+      <div class="hero-demo" aria-hidden="true">
+        <span class="demo-index">FIG. 01</span>
+        <div class="demo-line"><span>INPUT</span><code>(x + 2)^2 − x^2</code></div>
+        <div class="demo-line"><span>ENGINE</span><code>expand · collect · simplify</code></div>
+        <div class="demo-line result"><span>OUTPUT</span><code>4x + 4</code></div>
+        <p class="demo-caption">Every answer is computed locally, in this tab.</p>
+      </div>
+    </div>
+    <span class="hero-watermark" aria-hidden="true">01</span>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="tickerTrack"></div>
+  </div>
+
+  <section class="workbench" id="workbench">
+    <div class="section-head">
+      <span class="section-number">01 / WORKBENCH</span>
+      <h2>Do the maths.</h2>
+      <p>Choose a tool, write an expression, press Enter. That is the whole workflow.</p>
+    </div>
+
+    <div class="bench-layout">
+      <aside class="tool-index" id="toolIndex" aria-label="Tools">
+        <div class="tool-index-head"><span>INDEX</span><span id="toolCount">13</span></div>
+        <nav class="tool-list" id="toolList"></nav>
+      </aside>
+
+      <div class="bench-main">
+        <form id="calcForm" novalidate>
+          <div class="bench-topline">
+            <span class="bench-mode" id="modeLabel">SIMPLIFY</span>
+            <button type="button" class="text-btn" id="clearBtn">Reset</button>
+          </div>
+
+          <label class="input-label" for="expression" id="inputLabel">Expression</label>
+          <div class="input-field">
+            <textarea id="expression" rows="2" spellcheck="false" autocomplete="off"
+                      placeholder="(x + 2)^2 − x^2" aria-describedby="fieldHint"></textarea>
+          </div>
+          <p class="field-hint" id="fieldHint">Use ^ for powers. Multiplication can be implicit: 2x, (x+1)(x−1).</p>
+
+          <div class="keypad" id="keypad" hidden></div>
+
+          <div class="extra-fields" id="extraFields"></div>
+
+          <div class="examples" id="examples"></div>
+
+          <div class="bench-controls">
+            <div class="control-group" id="variableShell">
+              <label for="variable">Variable</label>
+              <select id="variable"><option>x</option><option>y</option><option>z</option><option>t</option><option>a</option><option>b</option><option>n</option></select>
+            </div>
+            <button type="submit" class="btn-solid run-btn" id="solveBtn">
+              <span class="run-label">Calculate</span>
+              <svg class="icon"><use href="#i-arrow-right"/></svg>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+          </div>
+        </form>
+
+        <div class="alert" id="errorBox" role="alert" hidden>
+          <svg class="icon"><use href="#i-info"/></svg><span id="errorText"></span>
+        </div>
+
+        <section class="result" id="resultCard" aria-live="polite" hidden>
+          <div class="result-header">
+            <div>
+              <span class="result-kicker">ANSWER</span>
+              <h3 id="resultTitle">Solution</h3>
+            </div>
+            <div class="result-actions">
+              <button class="text-btn" id="saveBtn"><svg class="icon"><use href="#i-bookmark"/></svg> Save</button>
+              <button class="text-btn" id="copyBtn"><svg class="icon"><use href="#i-copy"/></svg> Copy</button>
+            </div>
+          </div>
+          <output id="resultText" class="result-output"></output>
+          <p class="result-meta" id="resultMeta"></p>
+
+          <div class="graph-block" id="graphPanel" hidden>
+            <div class="graph-head">
+              <span>PLOT</span>
+              <div class="graph-controls">
+                <label>x min <input type="number" id="graphXmin" value="-10"></label>
+                <label>x max <input type="number" id="graphXmax" value="10"></label>
+                <button type="button" class="text-btn" id="graphReset">Reset</button>
+              </div>
+            </div>
+            <div class="canvas-wrap"><canvas id="graphCanvas"></canvas><div class="graph-tooltip" id="graphTooltip" hidden></div></div>
+            <div class="legend" id="graphLegend"></div>
+          </div>
+
+          <div class="steps-block">
+            <h4>Method</h4>
+            <ol id="stepsList"></ol>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="tools-section" id="tools">
+    <div class="section-head">
+      <span class="section-number">02 / CAPABILITIES</span>
+      <h2><span id="capabilityTitle">Fourteen</span> instruments.</h2>
+      <p>From exact polynomial algebra to numerical analysis — each tool does one thing properly.</p>
+    </div>
+    <div class="capability-grid" id="capabilityGrid"></div>
+  </section>
+
+  <section class="method-section" id="method">
+    <div class="method-copy">
+      <span class="section-number">03 / METHOD</span>
+      <h2>Built on exact arithmetic.</h2>
+      <p>The engine keeps rational numbers as fractions, expands polynomials symbolically, and only rounds when you ask it to. Expressions are parsed into a restricted tree — nothing you type is ever executed as code.</p>
+      <p>Everything runs in this tab. Your work stays on your device, and the workbench keeps working offline.</p>
+    </div>
+    <div class="method-list">
+      <div><span>01</span><p>Parse into a checked expression tree</p></div>
+      <div><span>02</span><p>Compute with rational coefficients</p></div>
+      <div><span>03</span><p>Show the method, not just the answer</p></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-mark"><svg class="icon"><use href="#i-logo"/></svg></span>
+      <p>Mathematics, without the noise.</p>
+    </div>
+    <div class="footer-col"><h4>Workbench</h4><a href="#workbench">Calculations</a><a href="#tools">All tools</a><a href="#method">Method</a></div>
+    <div class="footer-col"><h4>Built with</h4><span>Instrument Sans</span><span>Bricolage Grotesque</span><span>JetBrains Mono</span></div>
+    <div class="footer-col"><h4>Environment</h4><span>Local · browser</span><span id="footerStatus">Engine ready</span><span>Offline capable</span></div>
+  </div>
+  <div class="footer-bottom"><span>© <span id="year"></span> 5K6Learn MathBot</span><span>Made for people who like exact answers.</span></div>
+</footer>
+
+<aside class="history-drawer" id="historyDrawer" aria-label="History" hidden>
+  <div class="drawer-head"><span>HISTORY</span><button class="text-btn" id="historyClose"><svg class="icon"><use href="#i-close"/></svg></button></div>
+  <div class="drawer-tools"><input type="search" id="historySearch" placeholder="Search…"><button class="text-btn" id="historyClear"><svg class="icon"><use href="#i-trash"/></svg></button></div>
+  <div class="history-list" id="historyList"></div>
+</aside>
+<div class="drawer-scrim" id="drawerScrim" hidden></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/vendor/math.js"></script>
+<script src="js/api.js"></script>
+<script src="js/config.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/graph.js"></script>
+<script src="js/history.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

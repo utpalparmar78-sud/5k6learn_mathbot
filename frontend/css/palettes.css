@@ -1,0 +1,102 @@
+/* Five complete, professional colour systems. Flat colours only. */
+
+:root,
+[data-palette="graphite"] {
+  --bg: #0e1013;
+  --bg-2: #14171b;
+  --surface: #171a1f;
+  --ink: #f4f3ee;
+  --muted: #9ca3aa;
+  --faint: #656d76;
+  --line: rgba(244,243,238,.13);
+  --line-strong: rgba(244,243,238,.28);
+  --grid: rgba(244,243,238,.022);
+  --accent: #5b8cff;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(91,140,255,.13);
+  --footer-bg: #08090b;
+  --footer-ink: #f4f3ee;
+  --footer-muted: #7d858e;
+  --palette-light: 0;
+  --name: "Graphite";
+}
+
+[data-palette="paper"] {
+  --bg: #f5f2eb;
+  --bg-2: #ece7dc;
+  --surface: #efebe2;
+  --ink: #1b1d1f;
+  --muted: #67645e;
+  --faint: #96928a;
+  --line: rgba(27,29,31,.15);
+  --line-strong: rgba(27,29,31,.32);
+  --grid: rgba(27,29,31,.022);
+  --accent: #b4462d;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(180,70,45,.09);
+  --footer-bg: #1b1d1f;
+  --footer-ink: #f5f2eb;
+  --footer-muted: #97948d;
+  --palette-light: 1;
+  --name: "Paper";
+}
+
+[data-palette="arctic"] {
+  --bg: #f3f6f8;
+  --bg-2: #e7edf2;
+  --surface: #e9eff3;
+  --ink: #14212e;
+  --muted: #5d6c79;
+  --faint: #91a0ac;
+  --line: rgba(20,33,46,.14);
+  --line-strong: rgba(20,33,46,.3);
+  --grid: rgba(20,33,46,.022);
+  --accent: #0b6f9c;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(11,111,156,.08);
+  --footer-bg: #14212e;
+  --footer-ink: #f3f6f8;
+  --footer-muted: #8c9aa6;
+  --palette-light: 1;
+  --name: "Arctic";
+}
+
+[data-palette="forest"] {
+  --bg: #111a16;
+  --bg-2: #17231c;
+  --surface: #19251e;
+  --ink: #eef2e9;
+  --muted: #9bad9d;
+  --faint: #6b7e6e;
+  --line: rgba(238,242,233,.13);
+  --line-strong: rgba(238,242,233,.28);
+  --grid: rgba(238,242,233,.022);
+  --accent: #8cc77e;
+  --accent-ink: #102015;
+  --accent-soft: rgba(140,199,126,.12);
+  --footer-bg: #0a110d;
+  --footer-ink: #eef2e9;
+  --footer-muted: #7f9182;
+  --palette-light: 0;
+  --name: "Forest";
+}
+
+[data-palette="copper"] {
+  --bg: #f4efe8;
+  --bg-2: #ebe3d7;
+  --surface: #eee7dc;
+  --ink: #2a211b;
+  --muted: #76685d;
+  --faint: #a4988d;
+  --line: rgba(42,33,27,.15);
+  --line-strong: rgba(42,33,27,.32);
+  --grid: rgba(42,33,27,.022);
+  --accent: #b4622d;
+  --accent-ink: #ffffff;
+  --accent-soft: rgba(180,98,45,.09);
+  --footer-bg: #2a211b;
+  --footer-ink: #f4efe8;
+  --footer-muted: #a89a8f;
+  --palette-light: 1;
+  --name: "Copper";
+}
